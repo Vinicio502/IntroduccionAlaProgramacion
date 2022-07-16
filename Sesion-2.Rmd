@@ -1,0 +1,21 @@
+```{r}
+
+View(mtcars)
+str(mtcars)
+
+```
+
+CREAGIN A DATA FRAME
+
+```{r}
+name <- c("Mercury","Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+type <- c("terrestrial planet", "terrestrial planet", "Terrestrial planet", "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
+diameter <- c(0.91, 0.63, 2.29, 6.21, 5.23, 4.87, 7.36, 9.63)
+rotation <- c(26.78, 256.9, 963.4, -875.4, 4.6, -74.2, 0.85, -52.1)
+rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, FALSE)
+
+planets_df = data.frame(name,type,diameter,rotation,rings)
+
+View(planets_df)
+```
+
