@@ -1,0 +1,124 @@
+#FUNCIONES EN R:
+#Una funcion es basicamente un argumento de sentencias que se pueden llamar desde cualquier parte de un programa.
+#Las funciones permiten al programador un grado de abstraccion en la resolucion de un problema
+
+
+#.......................................................................................................
+
+
+#ESTRUCTURA DE UNA FUNCION:
+
+
+#Entradas o argumentos: Sirven para ingresar informacion necesaria para realizar el procedimiento de la funcion, los argumentos pueden estar vacios y a la espera de que el usuario ingrese valores, o pueden tener valores por defecto, esto sifnifica que si el usuario no ingresa un valor la funcion usara el valor por defecto, una funcion puede tener o no argumentos de entrada.
+
+
+#Cuerpo: Esta formado por un conjunto de instrucciones que transforman las entradas en las salidas deseadas. Si el cuerpo de la funcion esta formado por varias instrucciones estas deben ir entre llaves {}.
+
+
+#Salidas: Son los resultados de la funcion, toda funcion debe tener al menos un resultado, si una funcion entrega varios tipos de objetos se acostumbra a organizarlos en una lista que puede manejar los diferentes tipos de objetos.
+
+#EJEMPLO DE FUNCION.
+
+```{r}
+
+Edad <- function(x,y){
+  resultado <- x-y
+  return(resultado)
+}
+
+# x repesenta el año en el que estamos
+# y representa e año de nacimiento de la persona
+
+print("La edad de la persona es")
+Edad(x=2022, y=1995)
+```
+#--------------------------------------------------------------------------------------------------------------
+
+#Argumentos de una funcion:
+
+
+#Una funcion en R se divide en 3 partes:
+#EL CUERPO (BODY)<- comando
+#LOS ARGUMENTOS (formals)<- comando
+#EL AMBIENTE (environment) <- comando
+
+F <- function(x, y, z){
+  x + y + z
+}
+
+#body(F)
+#{
+#x + y + z
+#}
+
+
+#formals(F)
+#x
+#y
+#z
+
+#enviroment(F)
+#<environment: R_GlobalEnv>
+
+
+
+
+#LA FAMILIA APPLY
+
+#La familia aply es usada para aplicar una funcion a cada elemento de una estructura de datos, en particular es usada para aplicar funciones en matrices, data frames, arrays y listas.
+
+#Con esta familia de funciones podemos automatizar tareas complejas usando pocas lineas de codigo y es una de las caracteristicas deistintivas de R como lenguaje de programacion.
+
+#en la familia de apply existen las siguientes funciones:
+
+# 1) apply()
+# 2) eapply()
+# 3) lapply()
+# 4) mapply()
+# 5) rapply()
+# 6) sapply()
+# 7) tapply()
+# 8) vapply()
+
+#Es una familia numerosa y esta variedad de funciones se debe a que varias de ellas tienen aplicaciones sumamente especificas, todas las funciones de esta familia tienen una caracteristica en comun y es que reciben como argumentos a un objeto y al menos una funcion.
+
+
+#FUNCION LAPPLY()
+
+# lapply() es un caso especial de apply() diseñado para aplicar funciones a todos los elementos de una lista. La l de su nombres se refiere precisamente a lista.
+
+#lapply() intentara coercionar a una lista el objeto que debemos como argumento y despues aplicara una funcion a todos sus elementos.
+
+#lapply() siempre nos devolvera una lista como resultado. a diferencia de apply, sabemos que siempre obtendremos un objeto tipo lista despues de aplicar una funcion, sin importar cual funcion sea.
+
+```{r}
+
+#se usa como ejemplo el conjunto de datos de trees, este devuelve alto grueso y volumen de un listado de arboles
+trees[1:5, ]
+
+lapply(X=trees, FUN= mean)
+```
+
+#FUNCION SAPPLY()
+
+#La funcion lapply() opera sobre una lista o vector y devuelve, siempre una lista, esta relacionada con la funcion sapply() que es una version simplificada de lapply(), es decir sapply() aplica la funcion lapply() y estudia la salida, cuando entiende que dicha salida admite una representacion menos aparatosa que una lista, la simplifica.
+
+```{r}
+#Un ejemplo facil es aplicando raiz a un listado o vector de numeros
+
+sapply(1:5, sqrt)
+```
+
+#FUNCION VAPPLY()
+#La funcion vapply() basicamente devuelve un vector con la longitud que tiene cada una de listas introducidas como parametro
+
+```{r}
+#Un ejemplo basico y facil de visualizar es el siguiente donde se aplicara una lista con varios varlores de longitud
+
+m <- list(k=3, l=1:8, w=5:10)
+m
+#aplicando la funcion vapply() esta devolvera el largo
+
+vapply(m, FUN= length, FUN.VALUE=0L)
+```
+
