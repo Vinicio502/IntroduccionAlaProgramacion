@@ -152,4 +152,52 @@ Arithmetic with matrices
 mean <- stars_wars_matrix/5
 mean *2
 ```
+Factor
+```{r}
+sex_vector <- c("male", "female", "female","male", "male")
+factor_sex_vector <- factor(sex_vector)
+factor_sex_vector
+
+```
+
+```{r}
+temperature_vector <- c("high", "low", "high", "low", "medium")
+factor_temperature_vector <- factor(temperature_vector,order = TRUE, levels =c("low", "medium", "high"))
+factor_temperature_vector
+```
+Factor levels
+
+```{r}
+survey_vector <- c("M", "F", "F", "M", "M")
+factor_survey_vector <- factor(survey_vector)
+factor_survey_vector
+levels(factor_survey_vector) <- c("Female", "Male")
+```
+
+Summary
+```{r}
+summary(factor_survey_vector)
+```
+
+Ordered factors
+
+```{r}
+male <- factor_survey_vector[1]
+female <- factor_survey_vector[2]
+
+male
+female
+
+speed_vector <- c("medium", "slow", "high", "fast")
+factor_speed_vector <- factor(speed_vector, order =TRUE, levels =c("slow", "medium","high", "fast"))
+factor_speed_vector
+
+speed_1 <- factor_speed_vector[2]
+speed_5 <- factor_speed_vector[4]
+speed_1
+speed_5
+
+speed_1 < speed_5
+speed_5 < speed_1
+```
 
